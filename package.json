@@ -1,0 +1,26 @@
+{
+  "name": "@generationsoftware/pt-v5-nft-sweepstakes-helpers",
+  "version": "0.0.1",
+  "description": "Helper scripts to generate large batch NFT JSON files, etc.",
+  "author": "Generation Software Inc.",
+  "homepage": "https://github.com/generationsoftware/pt-v5-nft-sweepstakes-helpers/README.md",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/generationsoftware/pt-v5-nft-sweepstakes-helpers.git"
+  },
+  "main": "./index",
+  "type": "module",
+  "scripts": {
+    "start": "tsx ./index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.3.0",
+    "chalk": "^5.3.0",
+    "es-main": "1.2.0",
+    "ts-node": "10.9.1",
+    "tsdx": "^0.14.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.1.3"
+  }
+}
