@@ -26,17 +26,12 @@ direnv allow
 
 ```
 
-To run the local server, run:
+Example usage:
 
 ```
 
-yarn start
+`$ tsx ./index.ts --total=100 --name='NFT Test' --description='This is just a test' --imageUrl='https://arweave.net/lo2NVO4upUtInwmGYKRdsJZ2rRurqwWnmpUi5USvQFs'`
 
 ```
 
-## Developer
-
-### Tools
-
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 ```

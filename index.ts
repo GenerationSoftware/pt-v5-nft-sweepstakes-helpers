@@ -1,25 +1,42 @@
 import chalk from "chalk";
+import { program } from "commander";
 import { openSync, closeSync, appendFileSync } from "node:fs";
 
-const num = Number(process.argv[2]);
+program
+  .requiredOption("-t, --total <number>")
+  .requiredOption("-n, --name <name string>")
+  .requiredOption("-d, --description <description string>")
+  .requiredOption("-i, --imageUrl <arweave / ipfs / http image url>");
 
-const DESCRIPTION = `THIS IS THE D3SCRIPTION!`;
+program.parse();
+
+const options = program.opts();
+const total = Number(options.total);
+const name = options.name;
+const description = options.description;
+const imageUrl = options.imageUrl;
 
 export async function main() {
   console.log("");
   console.log(chalk.green("*********** BATCH CREATE NFT JSON ***********"));
   console.log("");
 
-  if (!num || num <= 0) {
+  if (!total || total <= 0) {
     console.log("");
-    console.log(chalk.blue(`Supply number of NFTs to generate as arg to script`));
+    console.log(
+      chalk.blue(`Supply number of NFTs to generate as arg to script (-t or --total option)`)
+    );
     console.log("");
 
     return;
   }
 
   console.log("");
-  console.log(chalk.blue(`Generating JSON for ${num} NFTs`));
+  console.log(chalk.blue(`Generating JSON for ${total} NFTs`));
+  console.log("");
+  console.log(chalk.blue(`Name: ${name}`));
+  console.log(chalk.blue(`Description: ${description}`));
+  console.log(chalk.blue(`Image URL: ${imageUrl}`));
   console.log("");
 
   type NFT = {
@@ -29,11 +46,11 @@ export async function main() {
   };
 
   let data: NFT[] = [];
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < total; i++) {
     data.push({
-      name: `Play Test NFT #${i + 1}`,
-      description: DESCRIPTION,
-      image: "https://arweave.net/lo2NVO4upUtInwmGYKRdsJZ2rRurqwWnmpUi5USvQFs"
+      name: `${name} #${i + 1}`,
+      description,
+      image: imageUrl
     });
   }
 
